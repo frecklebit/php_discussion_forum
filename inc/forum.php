@@ -4,7 +4,7 @@ CREATE TABLE [DBNAME].categories (
     cat_description     VARCHAR(255) NOT NULL,  
     UNIQUE INDEX cat_name_unique (cat_name),  
     PRIMARY KEY (cat_id)  
-) TYPE=INNODB;
+);
 
 CREATE TABLE [DBNAME].topics (  
 	topic_id        INT(8) NOT NULL AUTO_INCREMENT,  
@@ -13,7 +13,7 @@ CREATE TABLE [DBNAME].topics (
 	topic_cat       INT(8) NOT NULL,  
 	topic_by        INT(8) NOT NULL,  
 	PRIMARY KEY (topic_id)  
-) TYPE=INNODB;
+);
 
 CREATE TABLE [DBNAME].posts (  
     post_id         INT(8) NOT NULL AUTO_INCREMENT,  
@@ -22,7 +22,7 @@ CREATE TABLE [DBNAME].posts (
     post_topic      INT(8) NOT NULL,  
     post_by     INT(8) NOT NULL,  
     PRIMARY KEY (post_id)  
-) TYPE=INNODB;
+);
 
 ALTER TABLE [DBNAME].topics ADD FOREIGN KEY(topic_cat) REFERENCES [DBNAME].categories(cat_id) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE [DBNAME].topics ADD FOREIGN KEY(topic_by) REFERENCES cms.users(id) ON DELETE RESTRICT ON UPDATE CASCADE;
